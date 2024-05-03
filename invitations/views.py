@@ -30,7 +30,10 @@ class SendInvite(FormView):
 
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
+        if app_settings.ALLOW_WEB_INVITES:
+            return super().dispatch(request, *args, **kwargs)
+        else:
+            raise Http404
 
     def form_valid(self, form):
         email = form.cleaned_data["email"]

@@ -37,6 +37,11 @@ class AppSettings:
         return self._setting("GONE_ON_ACCEPT_ERROR", True)
 
     @property
+    def ALLOW_WEB_INVITES(self):
+        """Exposes web endpoint to create invites"""
+        return self._setting("ALLOW_WEB_INVITES", True)
+
+    @property
     def ALLOW_JSON_INVITES(self):
         """Exposes json endpoint for mass invite creation"""
         return self._setting("ALLOW_JSON_INVITES", False)
